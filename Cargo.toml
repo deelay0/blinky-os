@@ -1,0 +1,16 @@
+[package]
+name = "blinky-os"
+version = "0.1.0"
+edition = "2021"
+
+[profile.dev]
+opt-level = 0
+panic = "abort" # Disables stack unwinding
+
+[profile.release]
+opt-level = 0
+panic = "abort"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]

@@ -1,0 +1,8 @@
+[build]
+target = "armv7a-none-eabi"
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+rustflags = ["-C", "link-arg=-Tlinker.ld",]
+
+[target.armv7a-none-eabi]
+# uncomment this to make `cargo run` execute programs on QEMU
+runner = "qemu-system-aarch64 -machine raspi3ap -semihosting-config enable=on,target=native -kernel ./target/armv7a-none-eabi/debug/blinky-os"
