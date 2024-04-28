@@ -48,7 +48,7 @@ pub unsafe fn funsel(pin: usize, fun: u32) {
 
     let current_val = gpfsel.read_volatile();
     let clear_mask = !(0b111 << pin_bit);
-    let cleared_value = current_val | clear_mask;
+    let cleared_value = current_val & clear_mask;
 
     gpfsel.write_volatile(cleared_value | (fun << pin_bit));
 }
